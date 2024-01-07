@@ -19,3 +19,4 @@ chromeDriver
 
 .env
 .vscode
+test/report
