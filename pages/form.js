@@ -54,6 +54,14 @@ export default class ExpenseFormPage extends BasePage {
     return title;
   }
 
+  async getPickedDate() {
+    const dateComponent = await this.find(
+      `//android.view.View[@content-desc="Picked Date: ${this.getCurrentDate()}"]`
+    );
+    const date = await dateComponent.getAttribute("content-desc");
+    return date;
+  }
+
   async tapPlusButton() {
     await this.click(
       "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button"

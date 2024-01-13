@@ -46,6 +46,11 @@ Then("my expense is added", async () => {
   assert.notEqual(expenseContent, "");
 });
 
+Then("I still in the expense form", async () => {
+  const expenseDate = await expenseFormPage.getPickedDate();
+  assert.notEqual(expenseDate, "");
+});
+
 After(async () => {
   await driver.deleteSession();
 });
