@@ -114,4 +114,19 @@ ${this.getExpenseDate()}"]`);
     const data = await element.getAttribute("content-desc");
     return data;
   }
+
+  async tapDeleteButton() {
+    await this.click(`//android.view.View[@content-desc="$12500.0
+my expense
+${this.getExpenseDate()}"]/android.widget.Button`);
+  }
+
+  async getEmptyTxMessage() {
+    const element = await this.find(
+      '//android.view.View[@content-desc="No transaction added yet!"]'
+    );
+
+    const message = await element.getAttribute("content-desc");
+    return message;
+  }
 }

@@ -51,6 +51,15 @@ Then("I still in the expense form", async () => {
   assert.notEqual(expenseDate, "");
 });
 
+Then("I tap delete expense button", async () => {
+  await expenseFormPage.tapDeleteButton();
+});
+
+Then("Empty transaction message is displayed", async () => {
+  const message = await expenseFormPage.getEmptyTxMessage();
+  assert.equal(message, "No transaction added yet!");
+});
+
 After(async () => {
   await driver.deleteSession();
 });
